@@ -1,0 +1,30 @@
+<div class="row">
+<!--  MENU-->
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+<!--      allowEdit 1-true or 0-false-->
+<!--      [routerLink]="['servers', server.id]" ERROR! servers/servers-->
+      <a
+        [routerLink]="[server.id]"
+        [queryParams]="{allowEdit: server.id === 3 ? '1' : '0'}"
+        fragment="loading"
+        href="#"
+        class="list-group-item"
+        *ngFor="let server of servers">
+        {{ server.name }}
+      </a>
+<!--      localhost:4200/servers/5/edit?allowEdit=1#loading-->
+<!--      []="''" can be also written as no[] = ""-->
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <router-outlet></router-outlet>
+<!--    <button class="btn btn-primary" (click)="onReload()">Reload</button>-->
+<!--    <app-edit-server></app-edit-server>-->
+<!--    <hr>-->
+<!--    ERROR from server.component.ts-->
+<!--    id name is an integer! not a string from URL!-->
+<!--    <app-server></app-server>-->
+  </div>
+</div>
+

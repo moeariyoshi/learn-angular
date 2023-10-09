@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+<!--        routerLink allows us to not reload the page every time!-->
+        <li role="presentation"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+<!--        [] because pass in {} exact" true - only apply if it's the exact same path! not just includes! -->
+          <a routerLink="/">Home</a>
+        </li>
+        <li role="presentation" routerLinkActive="active"><a routerLink="/servers">Servers</a></li>
+<!--        no slash "servers" will work here because it's at the route but with in servers it will be /servers/servers-->
+        <li role="presentation" routerLinkActive="active"><a [routerLink]="['/users']">Users</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
